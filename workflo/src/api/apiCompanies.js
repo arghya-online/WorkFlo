@@ -5,8 +5,6 @@ export async function getCompanies(token) {
   const supabase = await supabaseClient(token);
 
   const { data, error } = await supabase.from("companies").select("*");
-  console.log(data);
-
   if (error) {
     console.error("Error fetching Companies:", error);
     return null;

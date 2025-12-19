@@ -2,7 +2,6 @@ import supabaseClient, { supabaseUrl } from "@/utils/supabase";
 
 export async function applyToJob(token, _, applicationData) {
   const supabase = await supabaseClient(token);
-  console.log("DEBUG: inside applyToJob, payload:", applicationData);
 
   const random = Math.floor(Math.random() * 90000);
   const fileName = `resume-${random}-${applicationData.candidate_id}`;
@@ -16,7 +15,6 @@ export async function applyToJob(token, _, applicationData) {
     console.error("DEBUG: Error uploading resume:", storageError);
     throw storageError;
   }
-  console.log("DEBUG: Resume uploaded successfully, fileName:", fileName);
 
   const resume = `${supabaseUrl}/storage/v1/object/public/resumes/${fileName}`;
 
@@ -37,12 +35,16 @@ export async function applyToJob(token, _, applicationData) {
     console.error("DEBUG: Error creating Application:", error);
     throw error;
   }
-  console.log("DEBUG: Application successfully inserted:", data);
 
   return data;
 }
 
-export async function updateApplicationStatus(token, _, application_id, status) {
+export async function updateApplicationStatus(
+  token,
+  _,
+  application_id,
+  status
+) {
   const supabase = await supabaseClient(token);
 
   const { data, error } = await supabase

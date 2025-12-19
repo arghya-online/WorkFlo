@@ -37,14 +37,7 @@ const JobPage = () => {
 
   useEffect(() => {
     if (job) {
-      console.log("DEBUG: Job Data:", job);
-      console.log("DEBUG: Applications:", job.applications);
-      console.log("DEBUG: User ID:", user?.id);
-      console.log("DEBUG: Recruiter ID:", job.recruiter_id);
-      console.log(
-        "DEBUG: Match?",
-        job?.recruiter_id === user?.id
-      );
+      "DEBUG: Job Data:", job;
     }
   }, [job, user]);
 
@@ -111,14 +104,16 @@ const JobPage = () => {
         <div className="max-w-sm">
           <Select onValueChange={handleStatusChange}>
             <SelectTrigger
-              className={`h-11 font-medium ${job?.isOpen || job?.isopen
+              className={`h-11 font-medium ${
+                job?.isOpen || job?.isopen
                   ? "bg-emerald-950 text-emerald-200 border-emerald-900"
                   : "bg-red-950 text-red-200 border-red-900"
-                }`}
+              }`}
             >
               <SelectValue
-                placeholder={`Hiring Status ${job?.isOpen || job?.isopen ? "( Open )" : "( Closed )"
-                  }`}
+                placeholder={`Hiring Status ${
+                  job?.isOpen || job?.isopen ? "( Open )" : "( Closed )"
+                }`}
               />
             </SelectTrigger>
 
