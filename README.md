@@ -59,7 +59,7 @@ Learned way more this way.
 - form handling
 - real API calls
 - Supabase RLS (painful but useful)
-- passing the right data types (very important 😅)
+- passing the right data types 
 
 ---
 
