@@ -129,7 +129,6 @@ const PostJob = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
-
           <div className="sm:col-span-1">
             <Controller
               name="location"
@@ -172,7 +171,7 @@ const PostJob = () => {
                     <SelectValue placeholder="Company">
                       {field.value
                         ? companies?.find((c) => c.id === Number(field.value))
-                          ?.name
+                            ?.name
                         : "Company"}
                     </SelectValue>
                   </SelectTrigger>
@@ -203,11 +202,16 @@ const PostJob = () => {
           </div>
         </div>
         <div className="rounded-lg overflow-hidden border hover:border-zinc-500 transition">
+          <h3 className="p-3 font-bold">Job Requirements</h3>
           <Controller
             name="requirements"
             control={control}
             render={({ field }) => (
-              <MDEditor value={field.value} onChange={field.onChange} />
+              <MDEditor
+                value={field.value}
+                onChange={field.onChange}
+                placeholder="Enter job requirements here..."
+              />
             )}
           />
         </div>
