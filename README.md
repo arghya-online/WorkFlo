@@ -151,7 +151,7 @@ VITE_SUPABASE_ANON_KEY=...
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/your-username/ApkaJob.git
+git clone https://github.com/your-username/WorkFlo.git
 cd ApkaJob
 npm install
 npm run dev
