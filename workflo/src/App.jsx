@@ -13,6 +13,7 @@ import { ThemeProvider } from "./components/ui/theme-provider";
 import { ClerkProvider } from "@clerk/clerk-react";
 import ProtectedRoutes from "./components/protected-routes";
 import { BarLoader } from "react-spinners";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -82,7 +83,9 @@ function App() {
       ],
     },
   ]);
-  return (
+}
+return (
+  <>
     <ClerkProvider
       appearance={{ theme: "simple" }}
       publishableKey={PUBLISHABLE_KEY}
@@ -91,7 +94,9 @@ function App() {
         <RouterProvider router={router} />
       </ThemeProvider>
     </ClerkProvider>
-  );
-}
+
+    <Analytics />
+  </>
+);
 
 export default App;
